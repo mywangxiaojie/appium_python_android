@@ -26,7 +26,7 @@ Devices:
 
 *如有任何建议欢迎邮件 h080294@163.com
 
-
+具体的模块介绍：https://www.jianshu.com/p/090c04f3b077
 
 
 
