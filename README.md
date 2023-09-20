@@ -34,3 +34,6 @@ Devices:
 ## 安装依赖
 * appium
 * adb
+
+## python依赖说明
+* 包pyh==1.0的安装是通过ext文件下的PyH-0.1本地文件进行安装，执行命令是python setup.py install
