@@ -7,7 +7,7 @@ MOBILE=$1
 #token
 TOKEN='xxxxxxxxxxxxxxxxxxxxxx'
 
-CODE=`curl -s "http://xxxxxx?token=$TOKEN&mobile=$MOBILE" | awk -F ',' '{print $9;}' | awk -F ':' '{print $3;}' | awk -F '}' '{print $1;}'`
+CODE=`curl -s "http://xxxxxx?token=$TOKEN&mobile=$MOBILE" | awk -F ',' '{print($9);}' | awk -F ':' '{print($3);}' | awk -F '}' '{print($1);}'`
 
 echo $CODE
 

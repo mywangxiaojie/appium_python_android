@@ -33,7 +33,7 @@ def login_and_post(loginPage, requestUrl, user, password):
 
         # 登录成功后打开指定页面
         point_url = urllib2.urlopen(requestUrl).read()
-        # print point_url
+        # print(point_url)
 
         soup = BeautifulSoup(
             point_url,  # 文档字符串
@@ -42,15 +42,15 @@ def login_and_post(loginPage, requestUrl, user, password):
         )
         token = soup.find_all('meta', id ='atlassian-token')
         token_content=token[0].attrs['content']
-        print token_content    #获取token值
+        print(token_content)    #获取token值
 
         draftId = soup.find_all('input', id='draftId')
         draftId_result=draftId[0].attrs['value']
-        print draftId_result    #获取draftId
+        print(draftId_result)    #获取draftId
 
         entityId = soup.find_all('input', id='entityId')
         entityId_result=entityId[0].attrs['value']
-        print entityId_result    #获取entityId
+        print(entityId_result)    #获取entityId
 
         # 读取monkey结果Summary.txt文件中的内容
         for listdir in Tester.lis:
@@ -85,8 +85,8 @@ def login_and_post(loginPage, requestUrl, user, password):
         # 查看表单提交后返回内容
         response = urllib2.urlopen(req2)
 
-    except Exception, e:
-        print str(e)
+    except Exception as e:
+        print(str(e))
 
 
 if __name__ == '__main__':

@@ -2,12 +2,12 @@
 # -*- coding:utf-8 -*-
 
 from common.HttpServerHandler import *
-from SocketServer import ThreadingTCPServer
+from socketserver import ThreadingTCPServer
 from common.Log import *
 from Server.Server import *
 
 def kill_server(port):
-    cmd = "lsof -i:%s|awk 'NR==2{print $2}'" % port
+    cmd = "lsof -i:%s|awk 'NR==2{print($2)}'" % port
     pid = os.popen(cmd).read()
     cmd = "kill -9 %s" % pid
     os.popen(cmd).read()

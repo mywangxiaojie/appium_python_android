@@ -2,7 +2,7 @@
 # -*- coding:utf-8 -*-
 
 from common.Log import *
-from Server import *
+from Server import Server
 from common.DeviceManager import *
 import threading
 

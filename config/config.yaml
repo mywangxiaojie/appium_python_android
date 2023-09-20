@@ -9,6 +9,18 @@ Devices:
    platformversion: 5.1    # desired_caps
    server: 127.0.0.1     # 地址
 
+ - deviceid: TPG4C18619002210
+   devicename: TPG4C18619002210
+   serverport: 4724
+   bootstrapport: 4824
+   platformname: Android
+   platformversion: 9
+   server: 127.0.0.1
+   noReset: True
+   appPackage: com.ibb.tizi
+   appActivity: .activity.LoginActivity
+
+
  - deviceid: 7c404969
    devicename: OPPO_A33
    serverport: 4724

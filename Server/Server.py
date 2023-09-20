@@ -23,7 +23,7 @@ class Server:
         self.kill(self._deviceobject.serverport)
 
     def kill(self, port):
-        cmd = "lsof -i:%s|awk 'NR==2{print $2}'" % port
+        cmd = "lsof -i:%s|awk 'NR==2{print($2)}'" % port
         self.logger.info(cmd)
         pid = os.popen(cmd).read()
         cmd = "kill -9 %s" % pid

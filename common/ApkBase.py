@@ -65,7 +65,7 @@ class ApkInfo():
         """
         获取version code
         """
-        cmd = "aapt dump badging " + self.apkpath + " | grep package | awk '{print $3}'"
+        cmd = "aapt dump badging " + self.apkpath + " | grep package | awk '{print($3)}'"
         result = ""
         p = subprocess.Popen(cmd, stdout=subprocess.PIPE,
                              stderr=subprocess.PIPE,
@@ -79,7 +79,7 @@ class ApkInfo():
         """
         获取version name
         """
-        cmd = "aapt dump badging " + self.apkpath + " | grep package | awk '{print $4}'"
+        cmd = "aapt dump badging " + self.apkpath + " | grep package | awk '{print($4)}'"
         result = ""
         p = subprocess.Popen(cmd, stdout=subprocess.PIPE,
                              stderr=subprocess.PIPE,

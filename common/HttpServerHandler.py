@@ -1,23 +1,22 @@
 #!/usr/bin/python
 #-*- coding:utf-8 -*-
 
-import SimpleHTTPServer
+import http.server
 from Log import Log
-import urlparse
+import urllib
 import threading
 import json
-import re
 import share
 from RunTestManager import *
 
 
-class HttpServerHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
+class HttpServerHandler(http.server.SimpleHTTPRequestHandler):
 
     run_manager = None
 
     def end_headers(self):
         self.send_my_headers()
-        SimpleHTTPServer.SimpleHTTPRequestHandler.end_headers(self)
+        http.server.SimpleHTTPRequestHandler.end_headers(self)
 
     def send_my_headers(self):
         self.send_header("Cache-Control", "no-cache, no-store, must-revalidate")
@@ -32,8 +31,8 @@ class HttpServerHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
         self.logger = Log.logger
         self.logger.warning("--------- GET ---------")
         self.logger.warning(self.path)
-        parsedParams = urlparse.urlparse(self.path)
-        queryParsed = urlparse.parse_qs(parsedParams.query)
+        parsedParams = urllib.parse.urlparse(self.path)
+        queryParsed = urllib.parse.parse_qs(parsedParams.query)
 
         if parsedParams.path == '/run':
             self.run(queryParsed)
@@ -63,14 +62,14 @@ class HttpServerHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
             thread.start()
             result_dict = {'code':0,"data":{"taskid fuck":"%s" % self.taskid,"message":"开始执行%s任务" % params['mode']}}
             self.set_response(result_dict)
-        except Exception, e:
+        except Exception as e:
             traceback.print_exc()
             get_run_manager().stop_run()
 
     def set_response(self, text, code=200):
         try:
             result = json.dumps(text, ensure_ascii=False)
-        except Exception, e:
+        except Exception as e:
             traceback.print_exc()
             result = text
         self.send_response(code)

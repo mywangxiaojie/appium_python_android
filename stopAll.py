@@ -11,7 +11,7 @@ def stopAppium():
         print("kill" + appium_pid)
 
 def kill_server(port):
-    cmd = "lsof -i:%s|awk 'NR==2{print $2}'" % port
+    cmd = "lsof -i:%s|awk 'NR==2{print($2)}'" % port
     pid = os.popen(cmd).read()
     cmd = "kill -9 %s" % pid
     os.popen(cmd).read()

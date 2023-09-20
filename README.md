@@ -29,10 +29,8 @@ Devices:
 具体的模块介绍：https://www.jianshu.com/p/090c04f3b077
 
 
-
-
-
-
-
-
 # appium_python_android
+
+## 安装依赖
+* appium
+* adb

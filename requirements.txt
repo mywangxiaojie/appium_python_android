@@ -1,0 +1,7 @@
+Appium_Python_Client==3.0.0
+beautifulsoup4==4.12.2
+Pillow==10.0.1
+pyh==0.1
+PyYAML==6.0.1
+Requests==2.31.0
+selenium==4.12.0
